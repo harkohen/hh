@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+ 
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  background-image: url('luonto.avif');
+  background-size: cover;
+  height: 200px; /* Korkeus taustakuvalle */
+  border-bottom: 2px solid white; /* Alareuna valkoisella reunalla */
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #f2f2f2;
+  width: 20%;
+  position: absolute; /* Sivupalkin paikka */
+  top: 200px; /* Yläreunan korkeus */
+  bottom: 0;
+}
+
+.topnav a {
+  display: block;
+  color: #b1b1b1;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color:#b1b1b1; 
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #d1b8e0; /* Violetti tausta auki olevaan sivuun */
+  color: white;
+}
+
+.main-content {
+  margin-left: 20%; /* Leveys vasemmalla palkilla */
+  padding: 20px;
+}
+
+img {
+  float: right; /* Kuva oikealle */
+  width: 50%; /* Leveys kuvalle */
+}
+
+
+#etusivu {
+  background-color: white;
+  padding: 20px; /* Lisää sisätilaa tekstin ympärille */
+}
+
+#kukaolen, #cv {
+  display: none;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #d1b8e0; /* Vaalean violetti tausta */
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 12px; /* Pienempi fontti alareunassa */
+}
+
+</style>
+</head>
+<body>
+
+<div class="header"></div>
+
+<div class="topnav">
+  <a href="index.html" onclick="showPage('etusivu')"> ETUSIVU</a>
+  <a href="#" onclick="showPage('kukaolen')">KUKA OLEN</a>
+  <a href="about.html" onclick="showPage('cv')">CV</a> <!-- CV on nyt kolmas sivu ja auki oleva -->
+</div>
+
+<div class="main-content">
+  <div class="content" id="etusivu">
+    <h2>Etusivu</h2>
+    <p>Tervetuloa sivustolleni.  </p>
+    <p>
+      <img src="omakuva.jpg" p>
+   
+    <p><span style="font-size: smaller;">Minun nimeni on Henniina Härkönen, ja tällä sivustolla pääset tutustumaan paremmin minuun sekä työkokemukseeni.</span></p>
+  </div>
+
+  <div class="content" id="kukaolen">
+    <h2>Kuka Olen</h2>
+    <p>Tämä on "Kuka Olen" -sivun sisältöä.<img src="vesi.jpg" alt="CV">
+    </p></p>
+  </div>
+
+  <div class="content" id="cv">
+    <h2>CV</h2>
+    <p>
+      
+      <body><a href = "#about.html"></a></body>
+      
+    </p>
+  </div>
+</div>
+
+<footer>
+  <p>Yhteystiedot: Henniina.97@hotmail.com</p> 
+</footer>
+
+<script>
+function showPage(pageId) {
+  var pages = document.getElementsByClassName("content");
+  for (var i = 0; i < pages.length; i++) {
+    pages[i].style.display = "none";
+  }
+  document.getElementById(pageId).style.display = "block";
+
+  var navLinks = document.getElementsByClassName("topnav")[0].getElementsByTagName("a");
+  for (var i = 0; i < navLinks.length; i++) {
+    navLinks[i].classList.remove("active");
+  }
+  document.querySelector("[onclick*='" + pageId + "']").classList.add("active");
+}
+</script>
+
+</body>
+</html>
